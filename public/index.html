@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Publishing Daily Digest</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>AI &amp; Publishing Daily Digest</h1>
+      <p class="subtitle" id="digest-date">Loading...</p>
+      <button id="refresh-btn" class="refresh-btn" title="Refresh digest">&#x21bb; Refresh</button>
+    </div>
+  </header>
+
+  <main id="app">
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      <p>Fetching today's digest...</p>
+    </div>
+
+    <div id="error" class="error-state" hidden>
+      <h2>Unable to load digest</h2>
+      <p id="error-message"></p>
+      <div id="setup-instructions" hidden>
+        <h3>Setup Required</h3>
+        <ol>
+          <li>Get a free API key from <a href="https://newsapi.org" target="_blank" rel="noopener">newsapi.org</a></li>
+          <li>In Replit, go to <strong>Secrets</strong> (lock icon in sidebar)</li>
+          <li>Add a secret: key = <code>NEWS_API_KEY</code>, value = your API key</li>
+          <li>Click the Refresh button above</li>
+        </ol>
+      </div>
+    </div>
+
+    <div id="digest" hidden>
+      <section id="headlines-section" class="digest-section headlines-section">
+        <h2>&#x1F5DE;&#xFE0F; Headlines (Yesterday)</h2>
+        <div id="headlines-list" class="headlines-list"></div>
+      </section>
+
+      <div id="category-sections"></div>
+
+      <section id="ticker-section" class="digest-section ticker-section">
+        <h2>&#x26A1; AI News Ticker (Ultra-Fresh)</h2>
+        <div id="ticker-list" class="ticker-list"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>Powered by <a href="https://newsapi.org" target="_blank" rel="noopener">NewsAPI</a> &mdash; Articles categorized by keyword matching</p>
+    <p class="footer-meta">Last refreshed: <span id="last-refreshed">—</span> &middot; <span id="article-count"></span></p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
